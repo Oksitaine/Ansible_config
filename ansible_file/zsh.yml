@@ -1,0 +1,30 @@
+- name : Install ZSH
+  apt : name=zsh
+  tags : 
+    - zsh
+- name : Make ZSH the default shell
+  shell : chsh -s $(which zsh)
+  tags : 
+    - zsh
+- name : Install Oh My Zsh
+  shell : sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  tags : 
+    - zsh
+- name : Install auto-completion
+  ansible.builtin.git : 
+    repo : https://github.com/zsh-users/zsh-autosuggestions
+    dest : ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  tags : 
+    - zsh
+- name : Install syntax highlighting
+  ansible.builtin.git : 
+    repo : https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest : ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  tags :
+    - zsh
+- name : Copy ZSH configuration
+  copy : 
+    src : .zshrc
+    dest : ~/.zshrc
+  tags :
+    - zsh

@@ -1,0 +1,15 @@
+- name : Install NodeJS
+  apt : 
+    name : [nodejs, npm]
+  tags :
+    - nodejs
+- name : Install n
+  npm : 
+    name : n
+    global : true
+  tags :
+    - nodejs
+- name : Install NodeJS 14 LTS
+  shell : n 14
+  tags :
+    - nodejs
