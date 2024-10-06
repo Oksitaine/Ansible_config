@@ -8,5 +8,5 @@
         - nodejs
         - zsh
   tasks : 
-    - include : ansible_file/zsh.yml
-    - include : ansible_file/node.yml
+    - include_tasks : ansible_file/zsh.yml
+    - include_tasks : ansible_file/node.yml
