@@ -10,7 +10,7 @@ WORKDIR /root/home/test
 RUN apt update
 RUN apt install -y sudo curl wget git ansible
 
-# COPY . . 
-# RUN ansible-playbook $ANSIBLE_FILE
+COPY . .
+RUN ansible-playbook -t zsh $ANSIBLE_FILE
 
 CMD ["echo", "hello"]
